@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Schedule Meeting</title>
+    </head>
+    <body>
+        <form id="myForm" action="/schedule_meeting" method="post">
+            <div id="invitees">
+                <div class="invitee">
+                    <label for="invitee1">Invitee 1:</label><br>
+                    <input type="email" id="invitee1" name="invitee1"><br>
+                </div>
+            </div>
+            <input type="button" value="Add Invitee" onClick="addInvitee()">
+            <input type="submit" value="Schedule Meeting">
+        </form>
+
+        <script>
+            let inviteeNum = 1;
+
+            function addInvitee() {
+                inviteeNum++;
+                const newDiv = document.createElement('div');
+                newDiv.className = 'invitee';
+                newDiv.innerHTML = `<label for="invitee${inviteeNum}">Invitee ${inviteeNum}:</label><br>
+                                    <input type="email" id="invitee${inviteeNum}" name="invitee${inviteeNum}"><br>`;
+                document.getElementById('invitees').appendChild(newDiv);
+            }
+        </script>
+    </body>
+</html>
